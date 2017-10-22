@@ -53,11 +53,14 @@
       <div class="card text-center">
         <div class="card-header">Add A New Burger</div>
         <div class="card-body">
-          <form class="create-update-form" action="/api/burgers" method="POST">
+          <form class="create-update-form action="/api/burgers" method="POST">
             <div class="form-group">
-              <input type="text" id="Burger" name="burger_name">
+              <input type="text" class="form-control" id="Burger" name="burger_name" required>
+              <div class="invalid-feedback">
+                  Please enter a name for your burger.
+              </div>
             </div>
-            <button class= 'btn btn-danger' type="submit">ADD BURGER</button>
+            <button class= 'btn btn-danger' type="submit" id=="submitBtn">ADD BURGER</button>
           </form>
         </div>
       </div>
@@ -66,3 +69,4 @@
   <br>
 
 </div>
+
