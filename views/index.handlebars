@@ -1,43 +1,68 @@
-<h1>Burgers!</h1>
+<div class="container">
+  <br>
 
-<h2>Un-eaten Burgers!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{this.id}}
-        {{this.burger_name}}
-        <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
-          <button type="submit">DEVOUR IT!</button>
-        </form>
-
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Devoured Burgers!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{this.id}}
-        {{this.burger_name}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-update-form" action="/api/burgers" method="POST">
-
-  <div class="form-group">
-    <label for="Burger">Burger:</label>
-    <input type="text" id="Burger" name="burger_name">
+  <div class="jumbotron">
+    <h1 class="display-3" id = "page-header" >EAT-DA-BURGER</h1>
+    <img src="/assets/images/burger.png" width="200"></img>
   </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+  <div class ="row">
+    <div class="col-md-6">
+      <div class="card text-center">
+        <div class="card-header">Burgers Available</div>
+        <div class="card-body">
+          <ul class = "list-group">
+            {{#each burgers}}
+              {{#unless this.devoured}}
+                <li class = "list-group-item">
+                  {{this.id}}
+                  {{this.burger_name}}
+                  <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button class= 'btn btn-danger' type="submit">DEVOUR IT!</button>
+                  </form>
+                 </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card text-center">
+        <div class="card-header">Devoured Burgers</div>
+        <div class="card-body">
+          <ul class = "list-group">
+            {{#each burgers}}
+              {{#if this.devoured}}
+                <li class= "list-group-item">
+                  {{this.id}}
+                  {{this.burger_name}}
+                </li>
+              {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class ="row">
+    <div class="col-md-6" id = "center-card">
+      <div class="card text-center">
+        <div class="card-header">Add A New Burger</div>
+        <div class="card-body">
+          <form class="create-update-form" action="/api/burgers" method="POST">
+            <div class="form-group">
+              <input type="text" id="Burger" name="burger_name">
+            </div>
+            <button class= 'btn btn-danger' type="submit">ADD BURGER</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+</div>
