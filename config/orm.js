@@ -13,10 +13,10 @@ var orm = {
     });
   },
 
-  insertOne: function(name, cb) {
-    var queryString = "INSERT INTO burgers (burger_name) VALUES (?);"
+  insertOne: function(table, field, name, cb) {
+    var queryString = "INSERT INTO ?? (??) VALUES (?);"
     console.log(queryString);
-    connection.query(queryString, name, function(err, result) {
+    connection.query(queryString, [table, field, name] , function(err, result) {
       if (err) {
         throw err;
       }
@@ -24,10 +24,10 @@ var orm = {
     });
   },
   
-  updateOne: function(idNum, cb) {
-    var queryString = "UPDATE burgers SET devoured ='1' WHERE id = ?";
+  updateOne: function(table, field, idNum, cb) {
+    var queryString = "UPDATE ?? SET devoured ='1' WHERE ?? = ?";
     console.log(queryString);
-    connection.query(queryString, idNum, function(err, result) {
+    connection.query(queryString,[table, field, idNum], function(err, result) {
       if (err) {
         throw err;
       }

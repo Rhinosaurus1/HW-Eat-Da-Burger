@@ -8,16 +8,16 @@ var burger = {
     });
   },
 
-  insertOne: function(name, cb) {
+  insertOne: function(table, field, name, cb) {
     console.log("name: " + name);
-    orm.insertOne(name, function(res) {
+    orm.insertOne(table, field, name, function(res) {
       cb(res);
     });
   },
-  
-  updateOne: function(idNum, cb) {
+
+  updateOne: function(table, field, idNum, cb) {
     console.log("idNum: " + idNum);
-    orm.updateOne(idNum, function(res) {
+    orm.updateOne(table, field, idNum, function(res) {
       cb(res);
     });
   }
