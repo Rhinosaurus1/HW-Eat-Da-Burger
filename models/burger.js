@@ -1,6 +1,7 @@
-
+//require orm file
 var orm = require("../config/orm.js");
 
+//call the three different orm functions
 var burger = {
   selectAll: function(cb) {
     orm.selectAll(function(res) {

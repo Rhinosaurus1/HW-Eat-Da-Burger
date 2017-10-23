@@ -1,7 +1,8 @@
 
+//require default connection file
 var connection = require("../config/connection.js");
 
-
+//define the three different mySQL queries
 var orm = {
   selectAll: function(cb) {
     var queryString = "SELECT * FROM burgers";
