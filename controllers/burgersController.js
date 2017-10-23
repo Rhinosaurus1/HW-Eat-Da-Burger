@@ -13,9 +13,8 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/burgers", function(req, res) {
+router.post("/", function(req, res) {
   burger.insertOne(req.body.burger_name, function(result) {
-    
     res.redirect("/");
   });
 });
@@ -23,9 +22,9 @@ router.post("/api/burgers", function(req, res) {
 router.put("/api/burgers/:id", function(req, res) {
   burger.updateOne(req.params.id, function(result) {
     if (result.changedRows == 0) {
-
       return res.status(404).end();
-    } else {
+    } 
+    else {
       res.redirect("/");
     }
   });
